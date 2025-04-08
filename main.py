@@ -9,6 +9,6 @@ from user_repository import UserRepository
 
 # Step 2: Use User Repository
 repo = UserRepository()
-repo.add_user("Bo", "bonsa@exple.com")
+repo.add_user("Bo", "bona@exple.com")
 demo = repo.get_all_users()
 print("📋 Users:", demo)

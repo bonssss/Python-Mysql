@@ -1,12 +1,17 @@
-# db_connection.py
 import pymysql
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 class MySQLConnection:
-    def __init__(self, host="localhost", user="root", password="Test@123", database=None):
-        self.host = host
-        self.user = user
-        self.password = password
-        self.database = database
+    def __init__(self, host=None, user=None, password=None, database=None):
+        # Use .env values if not provided explicitly
+        self.host = host or os.getenv("DB_HOST")
+        self.user = user or os.getenv("DB_USER")
+        self.password = password or os.getenv("DB_PASSWORD")
+        self.database = database or os.getenv("DB_NAME")
         self.connection = None
 
     def connect(self):
